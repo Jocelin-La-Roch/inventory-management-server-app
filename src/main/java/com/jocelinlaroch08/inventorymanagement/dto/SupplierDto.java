@@ -1,13 +1,10 @@
 package com.jocelinlaroch08.inventorymanagement.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jocelinlaroch08.inventorymanagement.model.Address;
 import com.jocelinlaroch08.inventorymanagement.model.Supplier;
-import com.jocelinlaroch08.inventorymanagement.model.SupplierOrder;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Embedded;
 import java.util.List;
 
 @Builder
@@ -31,7 +28,7 @@ public class SupplierDto {
     @JsonIgnore
     private List<SupplierOrderDto> orderDtoList;
 
-    public SupplierDto fromEntity(Supplier supplier) {
+    public static SupplierDto fromEntity(Supplier supplier) {
         if (supplier == null) {
             return null;
         }
@@ -42,11 +39,11 @@ public class SupplierDto {
                 .photo(supplier.getPhoto())
                 .phone(supplier.getPhone())
                 .email(supplier.getEmail())
-                .addressDto(this.addressDto.fromEntity(supplier.getAddress()))
+                .addressDto(AddressDto.fromEntity(supplier.getAddress()))
                 .build();
     }
 
-    public Supplier toEntity(SupplierDto supplierDto) {
+    public static Supplier toEntity(SupplierDto supplierDto) {
         if (supplierDto == null) {
             return null;
         }
@@ -58,7 +55,7 @@ public class SupplierDto {
         supplier.setPhone(supplierDto.getPhone());
         supplier.setPhoto(supplierDto.getPhoto());
         supplier.setEmail(supplierDto.getEmail());
-        supplier.setAddress(this.addressDto.toEntity(supplierDto.getAddressDto()));
+        supplier.setAddress(AddressDto.toEntity(supplierDto.getAddressDto()));
 
         return supplier;
     }

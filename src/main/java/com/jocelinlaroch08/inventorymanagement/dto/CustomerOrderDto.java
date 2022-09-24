@@ -1,7 +1,6 @@
 package com.jocelinlaroch08.inventorymanagement.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jocelinlaroch08.inventorymanagement.model.Customer;
 import com.jocelinlaroch08.inventorymanagement.model.CustomerOrder;
 import lombok.Builder;
 import lombok.Data;
@@ -24,7 +23,7 @@ public class CustomerOrderDto {
     @JsonIgnore
     private List<CustomerOrderLineDto> lineDtoList;
 
-    public CustomerOrderDto fromEntity(CustomerOrder customerOrder) {
+    public static CustomerOrderDto fromEntity(CustomerOrder customerOrder) {
         if(customerOrder == null) {
             return  null;
         }
@@ -33,11 +32,11 @@ public class CustomerOrderDto {
                 .id(customerOrder.getId())
                 .code(customerOrder.getCode())
                 .date(customerOrder.getDate())
-                .customerDto(this.customerDto.fromEntity(customerOrder.getCustomer()))
+                .customerDto(CustomerDto.fromEntity(customerOrder.getCustomer()))
                 .build();
     }
 
-    public CustomerOrder toEntity(CustomerOrderDto customerOrderDto) {
+    public static CustomerOrder toEntity(CustomerOrderDto customerOrderDto) {
         if (customerOrderDto == null) {
             return null;
         }
@@ -47,7 +46,7 @@ public class CustomerOrderDto {
         customerOrder.setId(customerOrderDto.getId());
         customerOrder.setDate(customerOrderDto.getDate());
         customerOrder.setCode(customerOrderDto.getCode());
-        customerOrder.setCustomer(this.customerDto.toEntity(customerOrderDto.getCustomerDto()));
+        customerOrder.setCustomer(CustomerDto.toEntity(customerOrderDto.getCustomerDto()));
 
         return customerOrder;
     }

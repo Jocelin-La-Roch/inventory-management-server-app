@@ -29,7 +29,7 @@ public class CompanyDto {
 
     private List<UserDto> userDtoList;
 
-    public CompanyDto fromEntity(Company company) {
+    public static CompanyDto fromEntity(Company company) {
         if (company == null) {
             return null;
         }
@@ -38,7 +38,7 @@ public class CompanyDto {
                 .id(company.getId())
                 .name(company.getName())
                 .description(company.getDescription())
-                .addressDto(this.addressDto.fromEntity(company.getAddress()))
+                .addressDto(AddressDto.fromEntity(company.getAddress()))
                 .taxCode(company.getTaxCode())
                 .photo(company.getPhoto())
                 .email(company.getEmail())
@@ -47,7 +47,7 @@ public class CompanyDto {
                 .build();
     }
 
-    public Company toEntity(CompanyDto companyDto) {
+    public static Company toEntity(CompanyDto companyDto) {
         if (companyDto == null) {
            return null;
         }
@@ -57,7 +57,7 @@ public class CompanyDto {
         company.setId(companyDto.getId());
         company.setName(companyDto.getName());
         company.setDescription(companyDto.getDescription());
-        company.setAddress(this.addressDto.toEntity(companyDto.getAddressDto()));
+        company.setAddress(AddressDto.toEntity(companyDto.getAddressDto()));
         company.setTaxCode(companyDto.getTaxCode());
         company.setPhoto(companyDto.getPhoto());
         company.setEmail(companyDto.getEmail());

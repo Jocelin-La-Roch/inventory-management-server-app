@@ -28,7 +28,7 @@ public class CustomerDto {
     @JsonIgnore
     private List<CustomerOrderDto> orderDtoList;
 
-    public CustomerDto fromEntity(Customer customer) {
+    public static CustomerDto fromEntity(Customer customer) {
         if (customer == null) {
             return null;
         }
@@ -37,14 +37,14 @@ public class CustomerDto {
                 .id(customer.getId())
                 .firstname(customer.getFirstname())
                 .lastname(customer.getLastname())
-                .addressDto(this.addressDto.fromEntity(customer.getAddress()))
+                .addressDto(AddressDto.fromEntity(customer.getAddress()))
                 .photo(customer.getPhoto())
                 .email(customer.getEmail())
                 .phone(customer.getPhone())
                 .build();
     }
 
-    public Customer toEntity(CustomerDto customerDto) {
+    public static Customer toEntity(CustomerDto customerDto) {
         if (customerDto == null) {
             return  null;
         }
@@ -53,7 +53,7 @@ public class CustomerDto {
         customer.setId(customerDto.getId());
         customer.setFirstname(customerDto.getFirstname());
         customer.setLastname(customerDto.getLastname());
-        customer.setAddress(this.addressDto.toEntity(customerDto.getAddressDto()));
+        customer.setAddress(AddressDto.toEntity(customerDto.getAddressDto()));
         customer.setPhoto(customerDto.getPhoto());
         customer.setPhone(customerDto.getPhone());
         customer.setEmail(customerDto.getEmail());

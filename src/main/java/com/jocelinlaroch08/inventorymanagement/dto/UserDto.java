@@ -1,14 +1,10 @@
 package com.jocelinlaroch08.inventorymanagement.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jocelinlaroch08.inventorymanagement.model.Address;
-import com.jocelinlaroch08.inventorymanagement.model.Company;
-import com.jocelinlaroch08.inventorymanagement.model.Role;
 import com.jocelinlaroch08.inventorymanagement.model.User;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
 
@@ -39,7 +35,7 @@ public class UserDto {
     @JsonIgnore
     private List<RoleDto> roleDtoList;
 
-    public UserDto fromEntity(User user) {
+    public static UserDto fromEntity(User user) {
         if (user == null) {
             return null;
         }
@@ -48,16 +44,16 @@ public class UserDto {
                 .id(user.getId())
                 .firstname(user.getFirstname())
                 .lastname(user.getLastname())
-                .addressDto(this.addressDto.fromEntity(user.getAddress()))
+                .addressDto(AddressDto.fromEntity(user.getAddress()))
                 .birthDate(user.getBirthDate())
                 .phone(user.getPhone())
                 .photo(user.getPhoto())
                 .email(user.getEmail())
-                .companyDto(this.companyDto.fromEntity(user.getCompany()))
+                .companyDto(CompanyDto.fromEntity(user.getCompany()))
                 .build();
     }
 
-    public User toEntity(UserDto userDto) {
+    public static User toEntity(UserDto userDto) {
         if (userDto == null) {
             return null;
         }
@@ -70,8 +66,8 @@ public class UserDto {
         user.setPhone(userDto.getPhone());
         user.setPhoto(userDto.getPhoto());
         user.setEmail(userDto.getEmail());
-        user.setAddress(this.addressDto.toEntity(userDto.getAddressDto()));
-        user.setCompany(this.companyDto.toEntity(userDto.getCompanyDto()));
+        user.setAddress(AddressDto.toEntity(userDto.getAddressDto()));
+        user.setCompany(CompanyDto.toEntity(userDto.getCompanyDto()));
 
         return user;
     }

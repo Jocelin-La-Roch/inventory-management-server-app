@@ -14,27 +14,27 @@ public class CustomerOrderLineDto {
 
     private CustomerOrderDto orderDto;
 
-    public CustomerOrderLineDto fromEntity(CustomerOrderLine customerOrderLine) {
+    public static CustomerOrderLineDto fromEntity(CustomerOrderLine customerOrderLine) {
         if (customerOrderLine == null) {
             return null;
         }
 
         return CustomerOrderLineDto.builder()
                 .id(customerOrderLine.getId())
-                .articleDto(this.articleDto.fromEntity(customerOrderLine.getArticle()))
-                .orderDto(this.orderDto.fromEntity(customerOrderLine.getOrder()))
+                .articleDto(ArticleDto.fromEntity(customerOrderLine.getArticle()))
+                .orderDto(CustomerOrderDto.fromEntity(customerOrderLine.getOrder()))
                 .build();
     }
 
-    public CustomerOrderLine toEntity(CustomerOrderLineDto customerOrderLineDto) {
+    public static CustomerOrderLine toEntity(CustomerOrderLineDto customerOrderLineDto) {
         if (customerOrderLineDto == null) {
             return null;
         }
 
         CustomerOrderLine customerOrderLine = new CustomerOrderLine();
         customerOrderLine.setId(customerOrderLineDto.getId());
-        customerOrderLine.setArticle(this.articleDto.toEntity(customerOrderLineDto.getArticleDto()));
-        customerOrderLine.setOrder(this.orderDto.toEntity(customerOrderLineDto.getOrderDto()));
+        customerOrderLine.setArticle(ArticleDto.toEntity(customerOrderLineDto.getArticleDto()));
+        customerOrderLine.setOrder(CustomerOrderDto.toEntity(customerOrderLineDto.getOrderDto()));
         return  customerOrderLine;
     }
 

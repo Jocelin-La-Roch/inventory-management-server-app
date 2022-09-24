@@ -1,6 +1,5 @@
 package com.jocelinlaroch08.inventorymanagement.dto;
 
-import com.jocelinlaroch08.inventorymanagement.model.Sale;
 import com.jocelinlaroch08.inventorymanagement.model.SaleLine;
 import lombok.Builder;
 import lombok.Data;
@@ -26,7 +25,7 @@ public class SaleLineDto {
 
         return SaleLineDto.builder()
                 .id(saleDto.getId())
-                .saleDto(this.saleDto.fromEntity(saleLine.getSale()))
+                .saleDto(SaleDto.fromEntity(saleLine.getSale()))
                 .quantity(saleLine.getQuantity())
                 .unitPrice(saleLine.getUnitPrice())
                 .build();
@@ -42,7 +41,7 @@ public class SaleLineDto {
         saleLine.setId(saleLineDto.getId());
         saleLine.setQuantity(saleLineDto.getQuantity());
         saleLine.setUnitPrice(saleLineDto.getUnitPrice());
-        saleLine.setSale(this.saleDto.toEntity(saleLineDto.getSaleDto()));
+        saleLine.setSale(SaleDto.toEntity(saleLineDto.getSaleDto()));
 
         return saleLine;
     }

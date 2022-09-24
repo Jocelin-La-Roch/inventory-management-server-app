@@ -32,7 +32,7 @@ public class StockMovementDto {
                 .date(stockMovement.getDate())
                 .quantity(stockMovement.getQuantity())
                 .type(stockMovement.getType())
-                .articleDto(this.articleDto.fromEntity(stockMovement.getArticle()))
+                .articleDto(ArticleDto.fromEntity(stockMovement.getArticle()))
                 .build();
     }
 
@@ -46,7 +46,7 @@ public class StockMovementDto {
         stockMovement.setDate(stockMovementDto.getDate());
         stockMovement.setQuantity(stockMovementDto.getQuantity());
         stockMovement.setType(stockMovementDto.getType());
-        stockMovement.setArticle(this.articleDto.toEntity(stockMovementDto.getArticleDto()));
+        stockMovement.setArticle(ArticleDto.toEntity(stockMovementDto.getArticleDto()));
 
         return stockMovement;
     }
