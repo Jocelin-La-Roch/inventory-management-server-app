@@ -21,7 +21,7 @@ public class Supplier extends AbstractEntity{
     private String lastname;
 
     @Embedded
-    private Adress adress;
+    private Address address;
 
     @Column(name = "photo")
     private String photo;

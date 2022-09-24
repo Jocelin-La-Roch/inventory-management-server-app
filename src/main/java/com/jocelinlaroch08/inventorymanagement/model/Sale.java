@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.Instant;
 
 @Data
 @Builder
@@ -14,7 +15,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "sales")
 public class Sale extends AbstractEntity{
+
     @Column(name = "code")
     private String code;
+
+    @Column(name = "date")
+    private Instant date;
+
+    @Column(name = "comment")
+    private String comment;
 
 }

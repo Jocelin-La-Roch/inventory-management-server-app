@@ -21,7 +21,7 @@ public class Company extends AbstractEntity{
     private String description;
 
     @Embedded
-    private Adress adress;
+    private Address address;
 
     @Column(name = "tax_code")
     private String taxCode;

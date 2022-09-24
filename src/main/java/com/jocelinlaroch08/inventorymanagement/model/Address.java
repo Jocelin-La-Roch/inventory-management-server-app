@@ -11,13 +11,13 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Embeddable
-public class Adress {
+public class Address {
 
-    @Column(name = "adress1")
-    private String adress1;
+    @Column(name = "address_1")
+    private String address1;
 
-    @Column(name = "adress2")
-    private String adress2;
+    @Column(name = "address_2")
+    private String address2;
 
     @Column(name = "city")
     private String city;
