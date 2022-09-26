@@ -4,6 +4,8 @@ import com.jocelinlaroch08.inventorymanagement.model.CustomerOrderLine;
 import lombok.Builder;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Builder
 @Data
 public class CustomerOrderLineDto {
@@ -14,6 +16,8 @@ public class CustomerOrderLineDto {
 
     private CustomerOrderDto orderDto;
 
+    private BigDecimal quantity;
+
     public static CustomerOrderLineDto fromEntity(CustomerOrderLine customerOrderLine) {
         if (customerOrderLine == null) {
             return null;
@@ -23,6 +27,7 @@ public class CustomerOrderLineDto {
                 .id(customerOrderLine.getId())
                 .articleDto(ArticleDto.fromEntity(customerOrderLine.getArticle()))
                 .orderDto(CustomerOrderDto.fromEntity(customerOrderLine.getOrder()))
+                .quantity(customerOrderLine.getQuantity())
                 .build();
     }
 
@@ -35,6 +40,8 @@ public class CustomerOrderLineDto {
         customerOrderLine.setId(customerOrderLineDto.getId());
         customerOrderLine.setArticle(ArticleDto.toEntity(customerOrderLineDto.getArticleDto()));
         customerOrderLine.setOrder(CustomerOrderDto.toEntity(customerOrderLineDto.getOrderDto()));
+        customerOrderLine.setQuantity(customerOrderLineDto.getQuantity());
+
         return  customerOrderLine;
     }
 

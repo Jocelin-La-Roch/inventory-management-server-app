@@ -2,10 +2,8 @@ package com.jocelinlaroch08.inventorymanagement.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Data
 @Builder
@@ -23,5 +21,8 @@ public class CustomerOrderLine extends AbstractEntity{
     @ManyToOne
     @JoinColumn(name = "order_id")
     private CustomerOrder order;
+
+    @Column(name = "quantity")
+    private BigDecimal quantity;
 
 }

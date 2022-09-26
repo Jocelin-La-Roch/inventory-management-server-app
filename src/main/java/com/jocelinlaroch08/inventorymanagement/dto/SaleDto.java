@@ -1,10 +1,12 @@
 package com.jocelinlaroch08.inventorymanagement.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jocelinlaroch08.inventorymanagement.model.Sale;
 import lombok.Builder;
 import lombok.Data;
 
 import java.time.Instant;
+import java.util.List;
 
 @Builder
 @Data
@@ -17,6 +19,9 @@ public class SaleDto {
     private Instant date;
 
     private String comment;
+
+    @JsonIgnore
+    private List<SaleLineDto> lineDtoList;
 
     public static SaleDto fromEntity(Sale sale) {
         if (sale == null) {
