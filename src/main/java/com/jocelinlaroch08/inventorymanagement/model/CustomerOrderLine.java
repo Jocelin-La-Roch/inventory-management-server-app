@@ -22,6 +22,9 @@ public class CustomerOrderLine extends AbstractEntity{
     @JoinColumn(name = "order_id")
     private CustomerOrder order;
 
+    @Column(name = "company_id")
+    private Integer companyId;
+
     @Column(name = "quantity")
     private BigDecimal quantity;
 

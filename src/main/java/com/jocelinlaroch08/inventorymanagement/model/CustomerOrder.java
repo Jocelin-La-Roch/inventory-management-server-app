@@ -25,6 +25,9 @@ public class CustomerOrder extends AbstractEntity{
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+    @Column(name = "company_id")
+    private Integer companyId;
+
     @OneToMany(mappedBy = "order")
     private List<CustomerOrderLine> lines;
 

@@ -27,7 +27,6 @@ public class SupplierOrderLineValidator {
             errors.add("Fill quantity");
         }
 
-
         return errors;
     }
 

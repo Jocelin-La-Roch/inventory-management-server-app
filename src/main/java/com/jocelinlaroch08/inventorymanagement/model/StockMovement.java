@@ -25,6 +25,9 @@ public class StockMovement extends AbstractEntity{
     @JoinColumn(name = "article_id")
     private Article article;
 
+    @Column(name = "company_id")
+    private Integer companyId;
+
     @Column(name = "type")
     private StockMovementType type;
 

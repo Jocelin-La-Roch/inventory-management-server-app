@@ -25,4 +25,7 @@ public class SupplierOrderLine extends AbstractEntity{
     @Column(name = "quantity")
     private BigDecimal quantity;
 
+    @Column(name = "company_id")
+    private Integer companyId;
+
 }
