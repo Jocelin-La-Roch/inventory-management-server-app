@@ -1,7 +1,10 @@
 package com.jocelinlaroch08.inventorymanagement.exception;
 
+import lombok.Getter;
+
 public class EntityNotFoundException  extends RuntimeException{
 
+    @Getter
     private ErrorCode errorCode;
 
     public EntityNotFoundException(String message) {
