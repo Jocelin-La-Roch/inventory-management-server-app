@@ -18,9 +18,10 @@ public class SupplierOrderDto {
 
     private Instant date;
 
+    private Integer companyId;
+
     private SupplierDto supplierDto;
 
-    @JsonIgnore
     private List<SupplierOrderLineDto> lineDtoList;
 
     public static SupplierOrderDto fromEntity(SupplierOrder supplierOrder) {
@@ -32,6 +33,7 @@ public class SupplierOrderDto {
                 .id(supplierOrder.getId())
                 .code(supplierOrder.getCode())
                 .date(supplierOrder.getDate())
+                .companyId(supplierOrder.getCompanyId())
                 .supplierDto(SupplierDto.fromEntity(supplierOrder.getSupplier()))
                 .build();
     }
@@ -45,6 +47,7 @@ public class SupplierOrderDto {
         supplierOrder.setId(supplierOrderDto.getId());
         supplierOrder.setCode(supplierOrderDto.getCode());
         supplierOrder.setDate(supplierOrderDto.getDate());
+        supplierOrder.setCompanyId(supplierOrderDto.getCompanyId());
         supplierOrder.setSupplier(SupplierDto.toEntity(supplierOrderDto.getSupplierDto()));
 
         return supplierOrder;

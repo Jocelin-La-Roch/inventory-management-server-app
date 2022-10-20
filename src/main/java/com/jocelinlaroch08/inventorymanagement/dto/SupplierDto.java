@@ -25,6 +25,8 @@ public class SupplierDto {
 
     private String phone;
 
+    private Integer companyId;
+
     @JsonIgnore
     private List<SupplierOrderDto> orderDtoList;
 
@@ -39,6 +41,7 @@ public class SupplierDto {
                 .photo(supplier.getPhoto())
                 .phone(supplier.getPhone())
                 .email(supplier.getEmail())
+                .companyId(supplier.getCompanyId())
                 .addressDto(AddressDto.fromEntity(supplier.getAddress()))
                 .build();
     }
@@ -55,6 +58,7 @@ public class SupplierDto {
         supplier.setPhone(supplierDto.getPhone());
         supplier.setPhoto(supplierDto.getPhoto());
         supplier.setEmail(supplierDto.getEmail());
+        supplier.setCompanyId(supplierDto.getCompanyId());
         supplier.setAddress(AddressDto.toEntity(supplierDto.getAddressDto()));
 
         return supplier;

@@ -22,6 +22,8 @@ public class StockMovementDto {
 
     private StockMovementType type;
 
+    private Integer companyId;
+
     public StockMovementDto fromEntity(StockMovement stockMovement) {
         if (stockMovement == null) {
             return  null;
@@ -31,6 +33,7 @@ public class StockMovementDto {
                 .id(stockMovement.getId())
                 .date(stockMovement.getDate())
                 .quantity(stockMovement.getQuantity())
+                .companyId(stockMovement.getCompanyId())
                 .type(stockMovement.getType())
                 .articleDto(ArticleDto.fromEntity(stockMovement.getArticle()))
                 .build();
@@ -45,6 +48,7 @@ public class StockMovementDto {
         stockMovement.setId(stockMovementDto.getId());
         stockMovement.setDate(stockMovementDto.getDate());
         stockMovement.setQuantity(stockMovementDto.getQuantity());
+        stockMovement.setCompanyId(stockMovementDto.getCompanyId());
         stockMovement.setType(stockMovementDto.getType());
         stockMovement.setArticle(ArticleDto.toEntity(stockMovementDto.getArticleDto()));
 

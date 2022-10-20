@@ -19,6 +19,8 @@ public class SaleLineDto {
 
     private ArticleDto articleDto;
 
+    private Integer companyId;
+
     public SaleLineDto fromEntity(SaleLine saleLine) {
         if (saleLine == null) {
             return null;
@@ -28,6 +30,7 @@ public class SaleLineDto {
                 .id(saleDto.getId())
                 .saleDto(SaleDto.fromEntity(saleLine.getSale()))
                 .quantity(saleLine.getQuantity())
+                .companyId(saleLine.getCompanyId())
                 .articleDto(ArticleDto.fromEntity(saleLine.getArticle()))
                 .build();
     }
@@ -42,6 +45,7 @@ public class SaleLineDto {
         saleLine.setId(saleLineDto.getId());
         saleLine.setQuantity(saleLineDto.getQuantity());
         saleLine.setSale(SaleDto.toEntity(saleLineDto.getSaleDto()));
+        saleLine.setCompanyId(saleLineDto.getCompanyId());
         saleLine.setArticle(ArticleDto.toEntity(saleLineDto.getArticleDto()));
 
         return saleLine;

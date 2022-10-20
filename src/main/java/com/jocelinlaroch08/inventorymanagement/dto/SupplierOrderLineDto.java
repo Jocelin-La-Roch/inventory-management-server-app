@@ -18,7 +18,9 @@ public class SupplierOrderLineDto {
 
     private BigDecimal quantity;
 
-    public  SupplierOrderLineDto fromEntity(SupplierOrderLine supplierOrderLine) {
+    private Integer companyId;
+
+    public static   SupplierOrderLineDto fromEntity(SupplierOrderLine supplierOrderLine) {
         if (supplierOrderLine == null) {
             return null;
         }
@@ -28,10 +30,11 @@ public class SupplierOrderLineDto {
                 .articleDto(ArticleDto.fromEntity(supplierOrderLine.getArticle()))
                 .orderDto(SupplierOrderDto.fromEntity(supplierOrderLine.getOrder()))
                 .quantity(supplierOrderLine.getQuantity())
+                .companyId(supplierOrderLine.getCompanyId())
                 .build();
     }
 
-    public SupplierOrderLine toEntity(SupplierOrderLineDto supplierOrderLineDto) {
+    public static SupplierOrderLine toEntity(SupplierOrderLineDto supplierOrderLineDto) {
         if (supplierOrderLineDto == null) {
             return null;
         }
@@ -41,6 +44,7 @@ public class SupplierOrderLineDto {
         supplierOrderLine.setArticle(ArticleDto.toEntity(supplierOrderLineDto.getArticleDto()));
         supplierOrderLine.setOrder(SupplierOrderDto.toEntity(supplierOrderLineDto.getOrderDto()));
         supplierOrderLine.setQuantity(supplierOrderLineDto.getQuantity());
+        supplierOrderLine.setCompanyId(supplierOrderLineDto.getCompanyId());
 
         return supplierOrderLine;
     }

@@ -1,6 +1,5 @@
 package com.jocelinlaroch08.inventorymanagement.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jocelinlaroch08.inventorymanagement.model.CustomerOrder;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +19,6 @@ public class CustomerOrderDto {
 
     private CustomerDto customerDto;
 
-    @JsonIgnore
     private List<CustomerOrderLineDto> lineDtoList;
 
     public static CustomerOrderDto fromEntity(CustomerOrder customerOrder) {

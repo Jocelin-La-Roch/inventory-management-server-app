@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @Builder
@@ -38,4 +39,13 @@ public class Article extends AbstractEntity{
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @OneToMany(mappedBy = "artcle")
+    private List<CustomerOrderLine> customerOrderLines;
+
+    @OneToMany(mappedBy = "artcle")
+    private List<SupplierOrderLine> supplierOrderLines;
+
+    @OneToMany(mappedBy = "artcle")
+    private List<SaleLine> saleLines;
 }

@@ -20,6 +20,8 @@ public class SaleDto {
 
     private String comment;
 
+    private Integer companyId;
+
     @JsonIgnore
     private List<SaleLineDto> lineDtoList;
 
@@ -32,6 +34,7 @@ public class SaleDto {
                 .code(sale.getCode())
                 .date(sale.getDate())
                 .comment(sale.getComment())
+                .companyId(sale.getCompanyId())
                 .build();
     }
 
@@ -43,6 +46,7 @@ public class SaleDto {
         sale.setId(saleDto.getId());
         sale.setDate(saleDto.getDate());
         sale.setComment(saleDto.getComment());
+        sale.setCompanyId(saleDto.getCompanyId());
         return sale;
     }
 

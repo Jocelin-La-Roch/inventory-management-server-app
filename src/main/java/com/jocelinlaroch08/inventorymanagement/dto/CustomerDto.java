@@ -25,6 +25,8 @@ public class CustomerDto {
 
     private String phone;
 
+    private Integer companyId;
+
     @JsonIgnore
     private List<CustomerOrderDto> orderDtoList;
 
@@ -41,6 +43,7 @@ public class CustomerDto {
                 .photo(customer.getPhoto())
                 .email(customer.getEmail())
                 .phone(customer.getPhone())
+                .companyId(customer.getCompanyId())
                 .build();
     }
 
@@ -57,6 +60,7 @@ public class CustomerDto {
         customer.setPhoto(customerDto.getPhoto());
         customer.setPhone(customerDto.getPhone());
         customer.setEmail(customerDto.getEmail());
+        customer.setCompanyId(customerDto.getCompanyId());
 
         return customer;
     }
