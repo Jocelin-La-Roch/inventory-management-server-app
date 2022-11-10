@@ -24,7 +24,7 @@ public class StockMovementDto {
 
     private Integer companyId;
 
-    public StockMovementDto fromEntity(StockMovement stockMovement) {
+    public static StockMovementDto fromEntity(StockMovement stockMovement) {
         if (stockMovement == null) {
             return  null;
         }
@@ -39,7 +39,7 @@ public class StockMovementDto {
                 .build();
     }
 
-    public StockMovement toEntity(StockMovementDto stockMovementDto) {
+    public static StockMovement toEntity(StockMovementDto stockMovementDto) {
         if (stockMovementDto == null) {
             return null;
         }
