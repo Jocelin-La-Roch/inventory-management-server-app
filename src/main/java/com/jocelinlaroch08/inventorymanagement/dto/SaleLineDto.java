@@ -35,7 +35,7 @@ public class SaleLineDto {
                 .build();
     }
 
-    public SaleLine toEntity(SaleLineDto saleLineDto) {
+    public static SaleLine toEntity(SaleLineDto saleLineDto) {
         if (saleLineDto == null) {
             return null;
         }
