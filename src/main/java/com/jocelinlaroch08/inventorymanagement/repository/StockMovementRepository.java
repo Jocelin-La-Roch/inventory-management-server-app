@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface StockMovementRepository extends JpaRepository<StockMovement, Integer> {
 
-    Optional<StockMovement> findByCode(String code);
+    // Optional<StockMovement> findByCode(String code);
 
 }

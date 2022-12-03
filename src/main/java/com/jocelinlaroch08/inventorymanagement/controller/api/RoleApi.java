@@ -15,8 +15,8 @@ public interface RoleApi {
     @GetMapping(value = Utils.APP_ROOT+"/roles/{roleId}", produces = MediaType.APPLICATION_JSON_VALUE)
     RoleDto findById(@PathVariable("roleId") Integer id);
 
-    @GetMapping(value = Utils.APP_ROOT+"/roles/{roleCode}", produces = MediaType.APPLICATION_JSON_VALUE)
-    RoleDto findByCode(@PathVariable("roleCode") String code);
+    /*@GetMapping(value = Utils.APP_ROOT+"/roles/{roleCode}", produces = MediaType.APPLICATION_JSON_VALUE)
+    RoleDto findByCode(@PathVariable("roleCode") String code);*/
 
     @GetMapping(value = Utils.APP_ROOT+"/roles/all", produces = MediaType.APPLICATION_JSON_VALUE)
     List<RoleDto> findAll();

@@ -28,10 +28,10 @@ public class RoleController implements RoleApi {
         return roleService.findById(id);
     }
 
-    @Override
+    /* @Override
     public RoleDto findByCode(String code) {
         return roleService.findByCode(code);
-    }
+    }*/
 
     @Override
     public List<RoleDto> findAll() {

@@ -40,12 +40,12 @@ public class Article extends AbstractEntity{
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToMany(mappedBy = "artcle")
+    @OneToMany(mappedBy = "article")
     private List<CustomerOrderLine> customerOrderLines;
 
-    @OneToMany(mappedBy = "artcle")
+    @OneToMany(mappedBy = "article")
     private List<SupplierOrderLine> supplierOrderLines;
 
-    @OneToMany(mappedBy = "artcle")
+    @OneToMany(mappedBy = "article")
     private List<SaleLine> saleLines;
 }

@@ -29,10 +29,10 @@ public class StockMovementController implements StockMovementApi {
         return stockMovementService.findById(id);
     }
 
-    @Override
+    /*@Override
     public StockMovementDto findByCode(String code) {
         return stockMovementService.findByCode(code);
-    }
+    }*/
 
     @Override
     public List<StockMovementDto> findAll() {

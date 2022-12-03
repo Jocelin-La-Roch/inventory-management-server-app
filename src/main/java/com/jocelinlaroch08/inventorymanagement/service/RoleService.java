@@ -10,7 +10,7 @@ public interface RoleService {
 
     RoleDto findById(Integer id);
 
-    RoleDto findByCode(String code);
+    // RoleDto findByCode(String code);
 
     List<RoleDto> findAll();
 

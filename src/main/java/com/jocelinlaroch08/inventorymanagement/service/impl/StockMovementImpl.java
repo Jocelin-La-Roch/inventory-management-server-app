@@ -53,7 +53,7 @@ public class StockMovementImpl implements StockMovementService {
         return Optional.of(stockMovementDto).orElseThrow(() -> new EntityNotFoundException("No stockMovement found", ErrorCode.ARTICLE_NOT_FOUND));
     }
 
-    @Override
+    /* @Override
     public StockMovementDto findByCode(String code) {
         if (code == null) {
             log.error("Code is null");
@@ -64,7 +64,7 @@ public class StockMovementImpl implements StockMovementService {
         StockMovementDto stockMovementDto = StockMovementDto.fromEntity(stockMovement.get());
 
         return Optional.of(stockMovementDto).orElseThrow(() -> new EntityNotFoundException("No stockMovement found", ErrorCode.ARTICLE_NOT_FOUND));
-    }
+    }*/
 
     @Override
     public List<StockMovementDto> findAll() {

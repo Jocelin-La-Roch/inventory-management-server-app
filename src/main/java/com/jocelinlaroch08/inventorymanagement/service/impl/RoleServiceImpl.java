@@ -52,7 +52,7 @@ public class RoleServiceImpl implements RoleService {
         return Optional.of(roleDto).orElseThrow(() -> new EntityNotFoundException("No role found", ErrorCode.ARTICLE_NOT_FOUND));
     }
 
-    @Override
+    /*@Override
     public RoleDto findByCode(String code) {
         if (code == null) {
             log.error("Code is null");
@@ -63,7 +63,7 @@ public class RoleServiceImpl implements RoleService {
         RoleDto roleDto = RoleDto.fromEntity(role.get());
 
         return Optional.of(roleDto).orElseThrow(() -> new EntityNotFoundException("No role found", ErrorCode.ARTICLE_NOT_FOUND));
-    }
+    }*/
 
     @Override
     public List<RoleDto> findAll() {

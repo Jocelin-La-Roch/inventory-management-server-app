@@ -15,8 +15,8 @@ public interface StockMovementApi {
     @GetMapping(value = Utils.APP_ROOT+"/stock-movements/{stockMovementId}", produces = MediaType.APPLICATION_JSON_VALUE)
     StockMovementDto findById(@PathVariable("stockMovementId") Integer id);
 
-    @GetMapping(value = Utils.APP_ROOT+"/stock-movements/{stockMovementCode}", produces = MediaType.APPLICATION_JSON_VALUE)
-    StockMovementDto findByCode(@PathVariable("stockMovementCode") String code);
+    /*@GetMapping(value = Utils.APP_ROOT+"/stock-movements/{stockMovementCode}", produces = MediaType.APPLICATION_JSON_VALUE)
+    StockMovementDto findByCode(@PathVariable("stockMovementCode") String code);*/
 
     @GetMapping(value = Utils.APP_ROOT+"/stock-movements/all", produces = MediaType.APPLICATION_JSON_VALUE)
     List<StockMovementDto> findAll();

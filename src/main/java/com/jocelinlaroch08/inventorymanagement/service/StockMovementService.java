@@ -10,7 +10,7 @@ public interface StockMovementService {
 
     StockMovementDto findById(Integer id);
 
-    StockMovementDto findByCode(String code);
+    // StockMovementDto findByCode(String code);
 
     List<StockMovementDto> findAll();
 
