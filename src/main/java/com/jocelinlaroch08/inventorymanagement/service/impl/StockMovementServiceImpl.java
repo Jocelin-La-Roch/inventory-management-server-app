@@ -1,7 +1,6 @@
 package com.jocelinlaroch08.inventorymanagement.service.impl;
 
 import com.jocelinlaroch08.inventorymanagement.dto.StockMovementDto;
-import com.jocelinlaroch08.inventorymanagement.dto.StockMovementDto;
 import com.jocelinlaroch08.inventorymanagement.exception.EntityNotFoundException;
 import com.jocelinlaroch08.inventorymanagement.exception.ErrorCode;
 import com.jocelinlaroch08.inventorymanagement.exception.InvalidEntityException;
@@ -19,12 +18,12 @@ import java.util.stream.Collectors;
 
 @Service
 @Slf4j
-public class StockMovementImpl implements StockMovementService {
+public class StockMovementServiceImpl implements StockMovementService {
 
     private StockMovementRepository stockMovementRepository;
 
     @Autowired
-    public StockMovementImpl(StockMovementRepository stockMovementRepository) {
+    public StockMovementServiceImpl(StockMovementRepository stockMovementRepository) {
         this.stockMovementRepository = stockMovementRepository;
     }
 
